@@ -1,41 +1,38 @@
-# StreamableNet
+﻿# StreamableNet
 
+[![NuGet](https://img.shields.io/nuget/v/StreamableNet.svg)](https://www.nuget.org/packages/StreamableNet/)  
 A **.NET 8.0 client library** for interacting with the [Streamable API](https://streamable.com/).  
 It provides an easy-to-use wrapper around authentication, user management, video retrieval, and uploads.
 
 ---
 
-## ? Features
-- ?? **Authentication** with username & password via `BasicAuthProvider`
-- ?? **User operations** (authenticate and retrieve account info)
-- ?? **Video operations** (fetch single videos or full collection)
-- ?? **Upload videos** with automatic S3 signing & transcoding
-- ? Built on `HttpClient` with async/await support
-- ?? Compatible with **.NET 8.0**
+## ✨ Features
+- 🔑 **Authentication** with username & password via `BasicAuthProvider`
+- 👤 **User operations** (authenticate and retrieve account info)
+- 🎬 **Video operations** (fetch single videos or full collection)
+- 📤 **Upload videos** with automatic S3 signing & transcoding
+- ⚡ Built on `HttpClient` with async/await support
+- 🚀 Compatible with **.NET 8.0**
 
 ---
 
-## ?? Installation
+## 📦 Installation
 
-Clone the repository and include the project in your solution:
+Install via **NuGet**:
 
 ```bash
-git clone https://github.com/<your-username>/assasinos-streamablenet.git
+dotnet add package StreamableNet
 ````
 
-Or add it as a project reference inside your `.csproj`:
+Or using the **NuGet Package Manager** in Visual Studio:
 
-```xml
-<ItemGroup>
-  <ProjectReference Include="..\assasinos-streamablenet\StreamableNet.csproj" />
-</ItemGroup>
+```powershell
+Install-Package StreamableNet
 ```
-
-*(NuGet packaging instructions can be added later if you plan to publish it.)*
 
 ---
 
-## ?? Usage
+## 🚀 Usage
 
 ### Authentication & Client Setup
 
@@ -48,7 +45,6 @@ using var client = new StreamableClient(authProvider);
 
 // Authenticate user
 var user = await client.User.AuthenticateAsync();
-Console.WriteLine($"Logged in as: {user.user_name}");
 ```
 
 ---
@@ -76,37 +72,37 @@ Console.WriteLine($"Uploaded with shortcode: {shortcode}");
 
 ---
 
-## ?? Project Structure
+## 📂 Project Structure
 
 ```
-assasinos-streamablenet/
-??? StreamableClient.cs         # Main entry point
-??? Auth/                       # Authentication providers
-??? Clients/                    # User, Video, and Upload clients
-??? Models/                     # DTOs for API responses
-??? Exceptions/                 # Custom exception handling
-??? Utils/                      # AWS Signature V4 helpers
-??? Consts/                     # API configuration options
-??? StreamableNet.csproj
+StreamableNet/
+├── StreamableClient.cs         # Main entry point
+├── Auth/                       # Authentication providers
+├── Clients/                    # User, Video, and Upload clients
+├── Models/                     # DTOs for API responses
+├── Exceptions/                 # Custom exception handling
+├── Utils/                      # AWS Signature V4 helpers
+├── Consts/                     # API configuration options
+└── StreamableNet.csproj
 ```
 
 ---
 
-## ?? Requirements
+## 🛠 Requirements
 
 * .NET 8.0 SDK
-* Streamable account for authentication
 
 ---
 
-## ?? Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a PR.
 
 ---
 
-## ?? License
+## 📜 License
 
 This project is licensed under the terms of the [MIT License](./LICENSE.txt).
 
+---
 
