@@ -1,11 +1,6 @@
 ﻿using StreamableNet.Auth;
 using StreamableNet.Consts;
 using StreamableNet.Models.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StreamableNet.Clients
 {

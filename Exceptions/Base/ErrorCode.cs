@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StreamableNet.Exceptions.Base
+﻿namespace StreamableNet.Exceptions.Base
 {
     public enum ErrorCode
     {

@@ -2,14 +2,8 @@
 using StreamableNet.Exceptions.Auth;
 using StreamableNet.Exceptions.Base;
 using StreamableNet.Models.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace StreamableNet.Auth
 {
@@ -128,11 +122,12 @@ namespace StreamableNet.Auth
         {
             try
             {
-                var responseData = JsonSerializer.Deserialize<Dictionary<string, string>>(responseContent);
-
-                if (responseData?.TryGetValue("error", out var error) == true)
+                //Check if error field is present in the response
+                using var jsonDoc = JsonDocument.Parse(responseContent);
+                if (jsonDoc.RootElement.TryGetProperty("error", out var errorElement))
                 {
-                    throw new StreamableAuthException($"Authentication failed: {error}", ErrorCode.AuthenticationFailed);
+                    var errorCode = errorElement.GetString();
+                    throw new StreamableAuthException($"Authentication failed: {errorCode}", ErrorCode.AuthenticationFailed);
                 }
             }
             catch (JsonException jsonEx)

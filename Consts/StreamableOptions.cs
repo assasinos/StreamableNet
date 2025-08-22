@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StreamableNet.Consts
+﻿namespace StreamableNet.Consts
 {
-    
+
     public class StreamableOptions
     {
         public string BaseApiUrl { get; init; } = "https://api-f.streamable.com";
@@ -21,6 +15,10 @@ namespace StreamableNet.Consts
         public string LogInEndpoint => $"{AuthBaseUrl}{LogInEndpointPath}";
         public string VideoEndpoint => $"{BaseApiUrl}{VideoEndpointPath}";
         public string ShortCodeEndpoint => $"{BaseApiUrl}{ShortCodeEndpointPath}";
+
+        public string NotifyUploadCompleteEndpoint(string shortcode) => $"{BaseApiUrl}/api/v1/uploads/{shortcode}/track";
+        public string TranscodeUploadEndpoint(string shortcode) => $"{BaseApiUrl}/api/v1/transcode/{shortcode}";
+        public string InitializeUploadEndpoint(string shortcode) => $"{BaseApiUrl}/api/v1/videos/{shortcode}/initialize";
     }
 
 }

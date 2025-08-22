@@ -1,7 +1,5 @@
 ﻿using StreamableNet.Consts;
 using StreamableNet.Models.Video;
-using System;
-using System.Collections.Generic;
 using System.Net.Http.Json;
 
 namespace StreamableNet.Clients

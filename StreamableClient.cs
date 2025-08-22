@@ -13,23 +13,24 @@ namespace StreamableNet
 
         public UserClient User { get; private set; }
         public VideoClient Video { get; private set; }
+        public UploadClient Upload { get; private set; }
 
 
-        public StreamableClient(IAuthProvider authProvider, HttpClient httpClient, StreamableOptions streamableOptions = null)
+        public StreamableClient(IAuthProvider authProvider, HttpClient httpClient, StreamableOptions? streamableOptions = null)
         {
             _authProvider = authProvider ?? throw new ArgumentNullException(nameof(authProvider));
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _options ??= new StreamableOptions();
+            _options = streamableOptions ?? new StreamableOptions();
 
             InitializeClients();
         }
 
-        public StreamableClient(IAuthProvider authProvider, StreamableOptions streamableOptions = null)
+        public StreamableClient(IAuthProvider authProvider, StreamableOptions? streamableOptions = null)
         {
             _authProvider = authProvider ?? throw new ArgumentNullException(nameof(authProvider));
             _httpClient = new();
             _disposeHttpClient = true;
-            _options ??= new StreamableOptions();
+            _options = streamableOptions ?? new StreamableOptions();
 
             InitializeClients();
         }
@@ -38,6 +39,7 @@ namespace StreamableNet
         {
             User = new UserClient(_httpClient, _authProvider, _options);
             Video = new VideoClient(_httpClient, _options);
+            Upload = new UploadClient(_httpClient, _options);
         }
 
 
@@ -49,4 +51,6 @@ namespace StreamableNet
             }
         }
 
+    }
 }
+
